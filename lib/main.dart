@@ -79,6 +79,35 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
+                  Expanded(
+                    child: GridView.count(
+                      crossAxisCount: 2,
+                      childAspectRatio: .85,
+                      children: <Widget>[
+                        Container(
+                          padding: EdgeInsets.all(20),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          child: Column(
+                            children: <Widget>[
+                              Spacer(),
+                              SvgPicture.asset("assets/icons/Hamburger.svg"),
+                              Spacer(),
+                              Text(
+                                "Diet Recomendation",
+                                textAlign: TextAlign.center,
+                                style: Theme.of(context)
+                                  .textTheme.title
+                                  .copyWith(fontSize:15)
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               ),
             ),
