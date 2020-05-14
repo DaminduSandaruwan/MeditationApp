@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:meditaion_app/constant.dart';
 
 void main() => runApp(MyApp());
@@ -34,6 +35,28 @@ class HomeScreen extends StatelessWidget {
               image: DecorationImage(
                 alignment: Alignment.centerLeft,
                 image: AssetImage("assets/images/undraw_pilates_gpdb.png"),
+              ),
+            ),
+          ),
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                children: <Widget>[
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Container(
+                      alignment: Alignment.center,
+                      height: 52,
+                      width: 52,
+                      decoration: BoxDecoration(
+                        color: Color(0xFFF2BEA1),
+                        shape: BoxShape.circle,
+                      ),
+                      child: SvgPicture.asset("assets/icons/menu.svg"),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
