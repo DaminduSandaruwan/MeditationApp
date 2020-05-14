@@ -42,6 +42,7 @@ class HomeScreen extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Align(
                     alignment: Alignment.topRight,
@@ -56,6 +57,13 @@ class HomeScreen extends StatelessWidget {
                       child: SvgPicture.asset("assets/icons/menu.svg"),
                     ),
                   ),
+                  Text(
+                    "Good Morning \nBuddy",
+                    style: Theme.of(context)
+                      .textTheme
+                      .display1
+                      .copyWith(fontWeight: FontWeight.w900),
+                  )
                 ],
               ),
             ),
