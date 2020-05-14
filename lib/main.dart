@@ -83,28 +83,26 @@ class HomeScreen extends StatelessWidget {
                     child: GridView.count(
                       crossAxisCount: 2,
                       childAspectRatio: .85,
+                      crossAxisSpacing: 20,
+                      mainAxisSpacing: 20,
                       children: <Widget>[
-                        Container(
-                          padding: EdgeInsets.all(20),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          child: Column(
-                            children: <Widget>[
-                              Spacer(),
-                              SvgPicture.asset("assets/icons/Hamburger.svg"),
-                              Spacer(),
-                              Text(
-                                "Diet Recomendation",
-                                textAlign: TextAlign.center,
-                                style: Theme.of(context)
-                                  .textTheme.title
-                                  .copyWith(fontSize:15)
-                              ),
-                            ],
-                          ),
+                        CategoryCard(
+                          title: "Diet Recomendation",
+                          svgSrc: "assets/icons/Hamburger.svg",
                         ),
+                        CategoryCard(
+                          title: "Kegal Exercises",
+                          svgSrc: "assets/icons/Excrecises.svg",
+                        ),
+                        CategoryCard(
+                          title: "Meditation",
+                          svgSrc: "assets/icons/Meditation.svg",
+                        ),
+                        CategoryCard(
+                          title: "Yoga",
+                          svgSrc: "assets/icons/yoga.svg",
+                        ),
+                        
                       ],
                     ),
                   )
@@ -113,6 +111,56 @@ class HomeScreen extends StatelessWidget {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class CategoryCard extends StatelessWidget {
+  final String svgSrc;
+  final String title;
+  const CategoryCard({
+    Key key, this.svgSrc, this.title,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      //padding: EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(15),
+        boxShadow: [
+          BoxShadow(
+            offset: Offset(0,17),
+            blurRadius: 25,
+            spreadRadius: -20,
+            //color: kShadowColor,
+          ),
+        ],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: (){},
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              children: <Widget>[
+                Spacer(),
+                SvgPicture.asset(svgSrc),
+                Spacer(),
+                Text(
+                  title,
+                  textAlign: TextAlign.center,
+                  style: Theme.of(context)
+                    .textTheme.title
+                    .copyWith(fontSize:15)
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }
