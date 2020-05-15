@@ -52,42 +52,32 @@ class DetailsScreen extends StatelessWidget {
                     child: SearchBar(),
                   ),
                   Wrap(
+                    spacing: 20,
+                    runSpacing: 20,
                     children: <Widget>[
-                      Container(
-                        padding: EdgeInsets.all(16),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(13),
-                          boxShadow: [
-                            BoxShadow(
-                              offset: Offset(0,17),
-                              blurRadius: 23,
-                              spreadRadius: -13,
-                              color: kShadowColor,
-                            ),
-                          ], 
-                        ),
-                        child: Row(
-                          children: <Widget>[
-                            Container(
-                              height: 42,
-                              width: 43,
-                              decoration: BoxDecoration(
-                                color: kBlueColor,
-                                shape: BoxShape.circle,
-                              ),
-                              child: Icon(
-                                Icons.play_arrow,
-                                color: Colors.white,
-                              ),
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              "Session 1",
-                              style: Theme.of(context).textTheme.subtitle,
-                            ),
-                          ],
-                        ),
+                      SessionCard(
+                        sessionNum: 1,
+                        isDone: true,
+                      ),
+                      SessionCard(
+                        sessionNum: 2,
+                        isDone: false,
+                      ),
+                      SessionCard(
+                        sessionNum: 3,
+                        isDone: false,
+                      ),
+                      SessionCard(
+                        sessionNum: 4,
+                        isDone: false,
+                      ),
+                      SessionCard(
+                        sessionNum: 5,
+                        isDone: false,
+                      ),
+                      SessionCard(
+                        sessionNum: 6,
+                        isDone: false,
                       ),
                     ],
                   )
@@ -97,6 +87,61 @@ class DetailsScreen extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+class SessionCard extends StatelessWidget {
+  final int sessionNum;
+  final bool isDone;
+
+  const SessionCard({
+    Key key, this.sessionNum, this.isDone =false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return LayoutBuilder(
+      builder: (context, constraint) {
+        return Container(
+          width: constraint.maxWidth/2 - 10,
+          padding: EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(13),
+            boxShadow: [
+              BoxShadow(
+                offset: Offset(0,17),
+                blurRadius: 23,
+                spreadRadius: -13,
+                color: kShadowColor,
+              ),
+            ], 
+          ),
+          child: Row(
+            children: <Widget>[
+              Container(
+                height: 42,
+                width: 43,
+                decoration: BoxDecoration(
+                  color: isDone ? kBlueColor : Colors.white,
+                  shape: BoxShape.circle,
+                  border: Border.all(color: kBlueColor),
+                ),
+                child: Icon(
+                  Icons.play_arrow,
+                  color: isDone ? Colors.white : kBlueColor,
+                ),
+              ),
+              SizedBox(width: 10),
+              Text(
+                "Session $sessionNum",
+                style: Theme.of(context).textTheme.subtitle,
+              ),
+            ],
+          ),
+        );
+      }
     );
   }
 }
