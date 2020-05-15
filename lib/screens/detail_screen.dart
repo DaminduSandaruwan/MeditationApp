@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:meditaion_app/constant.dart';
+import 'package:meditaion_app/widgets/search_bar.dart';
 
 class DetailsScreen extends StatelessWidget {
   @override
@@ -32,8 +33,23 @@ class DetailsScreen extends StatelessWidget {
                       .display1
                       .copyWith(fontWeight: FontWeight.w900),
                   ),
+                  SizedBox(height: 10),
                   Text(
-                    "3-10 MIN Course"
+                    "3-10 MIN Course",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  SizedBox(height: 10),
+                  SizedBox(
+                    width: size.width * 0.6,
+                    child: Text(
+                      "Live happier and healthier by learning the fundamentals of meditaion and mindfulness"
+                    ),
+                  ),
+                  SizedBox(
+                    width: size.width * .5,
+                    child: SearchBar(),
                   ),
                 ],
               ),

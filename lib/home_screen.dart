@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:meditaion_app/screens/detail_screen.dart';
 import 'package:meditaion_app/widgets/bottom_navBar.dart';
 import 'package:meditaion_app/widgets/category_card.dart';
+import 'package:meditaion_app/widgets/search_bar.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -48,21 +49,7 @@ class HomeScreen extends StatelessWidget {
                       .display1
                       .copyWith(fontWeight: FontWeight.w900),
                   ),
-                  Container(
-                    margin: EdgeInsets.symmetric(vertical:30),
-                    padding: EdgeInsets.symmetric(horizontal:30, vertical:5),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: "Search",
-                        icon: SvgPicture.asset("assets/icons/search.svg"),
-                        border: InputBorder.none,
-                      ),
-                    ),
-                  ),
+                  SearchBar(),
                   Expanded(
                     child: GridView.count(
                       crossAxisCount: 2,
