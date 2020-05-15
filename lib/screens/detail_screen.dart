@@ -51,6 +51,46 @@ class DetailsScreen extends StatelessWidget {
                     width: size.width * .5,
                     child: SearchBar(),
                   ),
+                  Wrap(
+                    children: <Widget>[
+                      Container(
+                        padding: EdgeInsets.all(16),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(13),
+                          boxShadow: [
+                            BoxShadow(
+                              offset: Offset(0,17),
+                              blurRadius: 23,
+                              spreadRadius: -13,
+                              color: kShadowColor,
+                            ),
+                          ], 
+                        ),
+                        child: Row(
+                          children: <Widget>[
+                            Container(
+                              height: 42,
+                              width: 43,
+                              decoration: BoxDecoration(
+                                color: kBlueColor,
+                                shape: BoxShape.circle,
+                              ),
+                              child: Icon(
+                                Icons.play_arrow,
+                                color: Colors.white,
+                              ),
+                            ),
+                            SizedBox(width: 10),
+                            Text(
+                              "Session 1",
+                              style: Theme.of(context).textTheme.subtitle,
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  )
                 ],
               ),
             ),
